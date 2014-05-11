@@ -1,6 +1,6 @@
 #Downloading source code
 
-appcfg.py download_app -A <your_app_id> -V <your_app_version> <output-dir>
+appcfg.py download_app -A \<your_app_id\> -V \<your_app_version\> <output-dir>
 
 #Deploy
 
