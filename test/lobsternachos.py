@@ -8,16 +8,12 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 
-
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-import webapp2
-
 DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
-
 
 # We set a parent key on the 'Greetings' to ensure that they are all in the same
 # entity group. Queries across the single entity group will be consistent.
@@ -26,12 +22,6 @@ DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
 def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
     """Constructs a Datastore key for a Guestbook entity with guestbook_name."""
     return ndb.Key('Guestbook', guestbook_name)
-
-class Greeting(ndb.Model):
-    """Models an individual Guestbook entry with author, content, and date."""
-    author = ndb.UserProperty()
-    content = ndb.StringProperty(indexed=False)
-    date = ndb.DateTimeProperty(auto_now_add=True)
 
 class MainPage(webapp2.RequestHandler):
 
@@ -56,7 +46,7 @@ class MainPage(webapp2.RequestHandler):
             'url_linktext': url_linktext,
         }
 
-        template = JINJA_ENVIRONMENT.get_template('index.html')
+        template = JINJA_ENVIRONMENT.get_template('/views/test/index.html')
         self.response.write(template.render(template_values))
 
 class MainPage3(webapp2.RequestHandler):
