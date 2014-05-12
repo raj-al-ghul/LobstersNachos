@@ -1,4 +1,4 @@
-from django.views.generic.simple import direct_to_template
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 from google.appengine.api import users

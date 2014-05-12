@@ -12,13 +12,21 @@ handlers:
 - url: /.*
   script: main.application
 
+- url: /mysql2
+  script: app.app
+
+- url: /mysql
+  script: app_mysql.app
+
 libraries:
 - name: webapp2
   version: latest
 - name: jinja2
   version: latest
 - name: django
-  version: "1.4"
+  version: "latest"
+- name: MySQLdb
+  version: "latest"
 
 env_variables:
   DJANGO_SETTINGS_MODULE: 'Django_AppEngine.settings'
